@@ -1,48 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .header{
-            color: red;
-            font-size: 100px;
-            text-align: center;
-            margin-top: 100px;
-        }
-        .paragraph{
-            font-style: italic;
-            text-decoration: underline;
-            font-size: 25px;
-        }
-        .container{
-            width:500px;
-            height:500px;
-            background:red;
-            margin-left: 100px;
-            padding-top: 100px;
-            text-align:right;
-        }
-        .link{
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello Viktor</title>
+
+
+  <style>
+
+    .header {
+      color: red;
+      font-size: 100px;
+      text-align: center;
+      margin-top: 100px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .paragraph {
+      font-style: italic;
+      text-decoration: underline;
+      font-size: 25px;
+      margin: 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 500px;
+      background: red;
+      margin: 100px auto 0;
+      padding: 100px 20px 20px;
+      text-align: right;
+      color: white;
+    }
+
+     .container a {
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    .container a i {
+      margin-right: 8px;
+    }
+
+    .container a:hover {
+      text-decoration: underline;
+    } 
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      padding: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #555;
+      font-size: 22px;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #000;
+    }
+  </style>
 </head>
 <body>
+  <h1 class="header">Hello Viktor!!!</h1>
 
-    <h1 class="header">
-     Hello Viktor!!!
-    </h1>
-    <p class="paragraph">
-        Hello from <span style="color:blue;">USA</span>!!!
-    </p>
-    <div class="container">
-        Today is Monday!!!
-        <br>
-        <a class="link" href="#"> Link#1 </a> 
-        <br>
-        <a href="#"> Link#2 </a> 
-    </div>
+  <p class="paragraph">
+    Hello from <span style="color: blue">USA</span>!!!
+  </p>
+
+  <div class="container">
+    Today is Monday!!!
+    <br />
+    <a href="https://www.linkedin.com/in/vik-kabelkov" target="_blank">
+      <i class="fab fa-linkedin"></i>Connect on LinkedIn
+    </a>
+    <br />
+    <a href="https://github.com/Vik1975" target="_blank">
+      <i class="fab fa-github"></i>Visit GitHub Profile
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Viktor's Website. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
