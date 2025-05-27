@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EdgeLedger - Financial Excellence</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-size: 28px;
+      color: white;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo i {
+      margin-right: 12px;
+      color: #00ff88;
+      font-size: 32px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .logo .brand-name {
+      color: #00ff88;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a:hover {
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .hero-content {
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      animation: slideUp 1s ease-out;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #ccc;
+      margin-bottom: 40px;
+      font-weight: 300;
+      animation: slideUp 1s ease-out 0.3s both;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #00ff88, #00cc6a);
+      color: white;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+      animation: slideUp 1s ease-out 0.6s both;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 255, 136, 0.4);
+      background: linear-gradient(45deg, #00cc6a, #00ff88);
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+      padding: 100px 5%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(0, 255, 136, 0.2), transparent);
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .about-image:hover::before {
+      opacity: 0;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content {
+      color: white;
+      padding: 20px;
+    }
+
+    .about-content h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .about-content .highlight {
+      color: #00ff88;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .team-section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ff88;
+      font-weight: 300;
+    }
+
+    .team-list {
+      font-size: 1.1rem;
+      color: #ccc;
+      line-height: 2;
+    }
+
+    .team-list strong {
+      color: #00ff88;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      nav a {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .about-content h2 {
+        font-size: 2.5rem;
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+      }
+
+      .team-section h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 0 15px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about-content h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-book-open"></i>
+      <span class="brand-name">Edge</span>Ledger
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>The Sky is The Limit</h1>
+      <h2>
+        Empowering businesses with cutting-edge financial solutions and strategic insights 
+        that drive growth and unlock unlimited potential.
+      </h2>
+      <button class="btn">Discover More</button>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-image fade-in">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop&crop=faces" alt="Professional team collaborating" />
+      </div>
+      <div class="about-content fade-in">
+        <h2><span class="highlight">Who</span> We Are</h2>
+        <p>
+          We are a forward-thinking financial consultancy dedicated to transforming businesses 
+          through innovative strategies and expert guidance. Our team combines decades of 
+          experience with cutting-edge technology to deliver exceptional results.
+        </p>
+        <div class="team-section">
+          <h3>Our Expert Team</h3>
+          <div class="team-list">
+            <strong>Strategic Leadership</strong> - Visionary guidance<br>
+            <strong>Financial Analysis</strong> - Data-driven insights<br>
+            <strong>Risk Management</strong> - Comprehensive protection<br>
+            <strong>Digital Innovation</strong> - Technology integration<br>
+            <strong>Client Relations</strong> - Personalized service
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Header background change on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(26, 26, 26, 0.95)';
+      } else {
+        header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%)';
+      }
+    });
+
+    // Button click animation
+    document.querySelector('.btn').addEventListener('click', () => {
+      document.querySelector('#about').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>
